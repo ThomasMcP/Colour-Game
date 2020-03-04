@@ -6,17 +6,38 @@ h1 {
   color: white;
 }
 
+#header {
+  width: 100%;
+  margin-bottom: 5%;
+  text-align: center;
+  background-color: green;
+}
+
 #container {
   max-width: 600px;
   margin: 0 auto;
 }
 
-
+#rgbDisplay {
+  display: block;
+}
 
 .square {
   width: 30%;
-  /* background-color: purple; */
   padding-bottom: 30%;
   float: left;
   margin: 1.66%;
+}
+
+#difficulty-selector-bar {
+  background-color: white;
+  text-align: left;
+}
+
+h2 {
+  margin-left: 20%;
+}
+
+p {
+  float: right;
 }
