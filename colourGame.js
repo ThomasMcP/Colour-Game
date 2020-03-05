@@ -4,6 +4,8 @@ let container = document.querySelector("#container");
 const header = document.querySelector("#header");
 const body = document.querySelector("body");
 const reset = document.querySelector("#reset");
+const easyButton = document.querySelector('#easy');
+const hardButton = document.querySelector('#hard');
 
 let winningColour = "";
 let gameEnd = false;
@@ -15,25 +17,44 @@ function setupGame() {
   header.style.backgroundColor = "green";
   fillSquares();
   selectedColour();
+  addSquareClickEvents();
 }
+
 // If User Clicks 'Easy'
-function threeSquareGame() {
-
-}
-
-// Handle Reset Button click
-reset.addEventListener("click", function() {
-  gameEnd = false;
-  setupGame();
+// Quite hacky, want to refactor later
+easyButton.addEventListener('click', function() {
+  container.innerHTML = "<div class='square'></div> <div class='square'></div> <div class='square'></div> ";
+  // fill Squares
+  resetGame();
 })
 
+// If User Clicks 'Hard'
+// Will refactor later
+hardButton.addEventListener('click', function() {
+  console.log('clicked');
+  container.innerHTML = "<div class='square'></div> <div class='square'></div> <div class='square'></div> <div class='square'></div> <div class='square'></div> <div class='square'></div>";
+  resetGame();
+})
+
+
+
+// Handle Reset Button click
+reset.addEventListener("click", resetGame);
+
+function resetGame() {
+  gameEnd = false;
+  setupGame();
+}
+
 // Square Click Event
-for (var i = 0; i < squares.length; i++) {
-  squares[i].addEventListener('click', function() {
-    if (gameEnd === false) {
-      handleColourClick(this);
-    }
-  })
+function addSquareClickEvents() {
+  for (var i = 0; i < squares.length; i++) {
+    squares[i].addEventListener('click', function() {
+      if (gameEnd === false) {
+        handleColourClick(this);
+      }
+    })
+  }
 }
 
 function handleColourClick(selectedColor) {
