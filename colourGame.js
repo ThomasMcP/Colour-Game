@@ -3,7 +3,7 @@ const h1Span = document.querySelector('#rgbDisplay');
 let container = document.querySelector("#container");
 const header = document.querySelector("#header");
 const body = document.querySelector("body");
-const reset = document.querySelector("button");
+const reset = document.querySelector("#reset");
 
 let winningColour = "";
 let gameEnd = false;
@@ -15,6 +15,10 @@ function setupGame() {
   header.style.backgroundColor = "green";
   fillSquares();
   selectedColour();
+}
+// If User Clicks 'Easy'
+function threeSquareGame() {
+
 }
 
 // Handle Reset Button click
@@ -37,6 +41,7 @@ function handleColourClick(selectedColor) {
     // backgroundColor over ["background-color"] ? Don't know.
     header.style.backgroundColor = selectedColor.style["background-color"];
     gameEnd = true;
+    fillSquares();
   } else {
     selectedColor.style["background-color"] = body.style["background-color"];
   }
@@ -45,7 +50,11 @@ function handleColourClick(selectedColor) {
 // Generate Random Colours for All Squares
 function fillSquares() {
   for (let i = 0; i < squares.length; i++) {
-    squares[i].style["background-color"] = colourGenerator();
+    if (gameEnd !== true) {
+      squares[i].style["background-color"] = colourGenerator();
+    } else {
+      squares[i].style["background-color"] = winningColour
+    }
   }
 }
 
