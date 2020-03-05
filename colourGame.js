@@ -3,14 +3,27 @@ const h1Span = document.querySelector('#rgbDisplay');
 let container = document.querySelector("#container");
 const header = document.querySelector("#header");
 const body = document.querySelector("body");
+const reset = document.querySelector("button");
+
 let winningColour = "";
 let gameEnd = false;
 
-// GAME SET UP
-// createThreeSquares();
-fillSquares();
-selectedColour();
+setupGame();
 
+// GAME SET UP
+function setupGame() {
+  header.style.backgroundColor = "green";
+  fillSquares();
+  selectedColour();
+}
+
+// Handle Reset Button click
+reset.addEventListener("click", function() {
+  gameEnd = false;
+  setupGame();
+})
+
+// Square Click Event
 for (var i = 0; i < squares.length; i++) {
   squares[i].addEventListener('click', function() {
     if (gameEnd === false) {
@@ -33,7 +46,6 @@ function handleColourClick(selectedColor) {
 function fillSquares() {
   for (let i = 0; i < squares.length; i++) {
     squares[i].style["background-color"] = colourGenerator();
-    console.log(squares[i]);
   }
 }
 

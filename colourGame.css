@@ -34,10 +34,23 @@ h1 {
   text-align: left;
 }
 
+#difficulty-setting {
+  float: right;
+  margin-left: none;
+}
+
 h2 {
   margin-left: 20%;
+  display: inline;
+  margin-right: 53%;
 }
 
 p {
   float: right;
+}
+
+#result-banner {
+  height: 20%;
+  background-color: green;
+  vertical-align: bottom;
 }
