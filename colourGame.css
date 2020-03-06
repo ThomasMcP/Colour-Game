@@ -1,49 +1,72 @@
 body  {
   background-color: #232323;
+  margin: 0;
+  font-family: "Montserrat", "Avenir";
+}
+
+.square {
+	width: 30%;
+	padding-bottom: 30%;
+	float: left;
+	margin: 1.66%;
+	border-radius: 15%;
+	transition: background-color 0.6s;
+	-webkit-transition: background-color 0.6s;
+	-moz-transition: background-color 0.6s;
 }
 
 h1 {
-  color: white;
+	text-align: center;
+	line-height: 1.1;
+	font-weight: normal;
+	color: white;
+	background: steelblue;
+	margin: 0;
+	text-transform: uppercase;
+	padding: 20px 0;
 }
 
 #header {
   width: 100%;
   margin-bottom: 5%;
   text-align: center;
-  background-color: green;
 }
 
 #container {
-  max-width: 600px;
-  margin: 0 auto;
+	margin: 20px auto;
+	max-width: 600px;
 }
 
 #rgbDisplay {
   display: block;
+  font-size: 200%;
 }
 
-.square {
-  width: 30%;
-  padding-bottom: 30%;
-  float: left;
-  margin: 1.66%;
-}
-
-#difficulty-selector-bar {
+#stripe {
   background-color: white;
-  text-align: left;
-  display: block;
+  height: 30px;
+  text-align: center;
 }
 
-.difficulty-buttons {
-  float: right;
-  margin-right: 20%;
+.button {
+  background-color: white;
+  border: none;
+  height: 100%;
+  color: steelblue;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: inherit;
+  transition: all 0.3s;
 }
 
-button {
+.button:hover, .selected {
+  background-color: steelblue;
+  color: white;
 }
 
-h2 {
-  display: inline;
-  margin-left: 20%;
+#message {
+  font-size: 12px;
+  color: steelblue;
+  display: inline-block;
+  width: 20%;
 }

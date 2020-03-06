@@ -14,7 +14,7 @@ setupGame();
 
 // GAME SET UP
 function setupGame() {
-  header.style.backgroundColor = "green";
+  header.style.backgroundColor = "rgb(50, 100, 250)";
   fillSquares();
   selectedColour();
   addSquareClickEvents();
@@ -23,16 +23,26 @@ function setupGame() {
 // If User Clicks 'Easy'
 // Quite hacky, want to refactor later
 easyButton.addEventListener('click', function() {
+  removeSelectedClass();
+  easyButton.classList.add('selected');
   container.innerHTML = "<div class='square'></div> <div class='square'></div> <div class='square'></div> ";
   // fill Squares
   resetGame();
 })
 
+// REMOVE 'SELECTED' CLASS FROM ALL BUTTONS
+function removeSelectedClass() {
+  easyButton.classList.remove('selected');
+  hardButton.classList.remove('selected');
+}
+
 // If User Clicks 'Hard'
 // Will refactor later
 hardButton.addEventListener('click', function() {
-  console.log('clicked');
+  removeSelectedClass();
+  hardButton.classList.add('selected');
   container.innerHTML = "<div class='square'></div> <div class='square'></div> <div class='square'></div> <div class='square'></div> <div class='square'></div> <div class='square'></div>";
+
   resetGame();
 })
 
@@ -43,6 +53,8 @@ reset.addEventListener("click", resetGame);
 
 function resetGame() {
   gameEnd = false;
+  reset.textContent = "NEW COLOURS";
+  message.textContent = "";
   setupGame();
 }
 
@@ -59,12 +71,14 @@ function addSquareClickEvents() {
 
 function handleColourClick(selectedColor) {
   if (selectedColor.style["background-color"] === winningColour) {
-    // backgroundColor over ["background-color"] ? Don't know.
     header.style.backgroundColor = selectedColor.style["background-color"];
     gameEnd = true;
+    message.textContent = "CORRECT!"
     fillSquares();
+    reset.textContent = "PLAY AGAIN?";
   } else {
     selectedColor.style["background-color"] = body.style["background-color"];
+    message.textContent = "TRY AGAIN!"
   }
 }
 
